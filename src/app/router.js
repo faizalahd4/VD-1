@@ -112,7 +112,7 @@ router.get("/getData/:key?/:timestamp?", function(req, res) {
         /* MERGING TWO OBJECT */
         var master = Object.assign({}, req.params, req.query);
         /* VALIDATING */
-        var validationOutput = validationService.validateGetData(master.key, master.value);
+        var validationOutput = validationService.validateGetData(master.key, master.timestamp);
         /* CHECK WHETHER ITS VALIDA OR NOT */
         if (!validationOutput.isValid) {
             /* THROWING ERROR */
