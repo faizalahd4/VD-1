@@ -145,7 +145,7 @@ router.get("/getData/:key?/:timestamp?", function(req, res) {
                 db.close();
                 /* CHECKING WHETHER DATA EXISTS OR NOT */
                 if (result == null) {
-                    result = {code: -1, output: "Data doesn't exists for the key - " + searchQuery.key};
+                    result = {code: -1, output: "Data doesn't exists."};
                 }
                 /* SENDING THE FINAL RESPONSE */                  
                 return res.send(result);

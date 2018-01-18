@@ -26,7 +26,7 @@ app.get("/", function(req, res) {
 /* OPEN INDEX.HTML FILES - ENDS */
 
 /* LISTENING TO THE PORT - STARTS */
-app.listen(8080, function () {
+app.listen(80, function () {
    console.log("Listening..."); 
 });
 /* LISTENING TO THE PORT - ENDS */

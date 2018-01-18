@@ -24,7 +24,7 @@ module.exports = {
         return output;
     },
     /* GET DATA VALIATION */
-    validateGetData: function (key) {
+    validateGetData: function (key, timestamp) {
         /* DECLARING LOCAL VARIABLE */
         var output = {msg: "", isValid: true};
         /* BASIC VALIDATION FOR KEY FIELD */
