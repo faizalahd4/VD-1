@@ -1,0 +1,112 @@
+/*!
+ *  style.css
+ *  @date - 16/01/2018
+ *  @author - Faizal
+ *  1. HTML TAG STYLE
+ *  2. LAYOUT
+ *  3. SPECIAL STYLE CASES
+ *  4. ALERT POPUP
+ */
+
+/* HTML TAG STYLE CASES - STARTS */
+html, body {
+    width: 100%;
+    background: #FFF;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+
+p {
+    line-height: 1.6em;
+    margin: 0;
+    padding: 5px 10px 5px 0;
+    white-space: normal
+}
+
+a, a:visited, a:active {
+    color: #1e52a4;
+    font-size: 12px; 
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+a:hover{
+    color: #396db3;
+    text-decoration: none;
+}
+
+header {
+    font-size:45px;
+    color: #2c3e50;
+    margin: 30px 0;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
+    color: #5a5a5a;
+    margin: 10px auto;
+}
+/* HTML TAG STYLE CASES - ENDS */
+
+/* LAYOUT - STARTS */
+#manage-section {
+    width: 400px;
+    margin: 20px auto;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    box-shadow: 1px 1px 3px #ccc;
+}
+/* LAYOUT - ENDS */
+
+/* SPECIAL STYLE CASES - STARTS */
+.mad{
+    color: #d20d0d;
+    font-size: 14px;
+    font-weight: bolder;
+    padding-left: 2px;
+}
+
+.error {
+    color: #d20d0d;
+    font-size: 12px;
+    font-weight: normal;
+}
+/* SPECIAL STYLE CASES - ENDS */
+
+
+/* ALERT POPUP - STARTS */
+.alert{
+    padding: 15px;
+    border-radius: 0 0 4px 4px;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    margin: 0 auto;
+    max-width:80%;
+    min-width:40%;
+    display:inline-block;
+    z-index:2;
+    display:none;
+}
+.success-alert{
+    color: #3c763d;
+    background: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-top: none;
+    font-size:13px;
+}
+.error-alert{
+    color: #a94442;
+    background: #f2dede;
+    border: 1px solid #ebccd1;
+    border-top: none;
+    font-size:13px;
+}
+/* ALERT POPUP - ENDS */

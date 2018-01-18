@@ -1,0 +1,16 @@
+{
+  "name": "vaultdragon",
+  "version": "1.0.0",
+  "description": "NODEJS, MONGO & ANGULAR Code",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Faizal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^2.2.33"
+  }
+}

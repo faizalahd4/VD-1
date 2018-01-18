@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META DATA INFORMATION - STARTS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Vault Dragon Code Testing">
+    <meta name="keywords" content="Vault Dragon Code Testing">
+    <meta name="author" content="Laf">
+    <!-- META DATA INFORMATION - ENDS -->
+    
+    <!-- TITLE - STARTS -->
+    <title>Vault Dragon Code</title>
+    <!-- TITLE - ENDS -->
+    
+    <!-- HTML5 SUPPORT IN IE9 BELOW BROWSER AND MEDIA QUERY - STARTS -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- HTML5 SUPPORT IN IE9 BELOW BROWSER AND MEDIA QUERY - ENDS -->
+    
+    <!-- FONT - STARTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <!-- FONT - ENDS -->
+    
+    <!-- STYLE - STARTS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- STYLE - ENDS -->
+    
+    <!-- SCRIPT - STARTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="/script/angular-init.js"></script>
+    <script src="/script/alert-popup.js"></script>
+    <!-- SCRIPT - ENDS -->
+</head>
+<body ng-app="myApp" ng-controller="manageKeyValueCtrl" ng-init="requestType = 1">
+    
+    <!-- MAIN CONTAINER - STARTS -->    
+    <div class="container">
+
+        <!-- HEADER - STARTS -->
+        <header>Vault Dragon Code</header>
+        <!-- HEADER - ENDS -->
+
+        <!-- MANAGE DATA SECTION - STARTS -->
+        <section id="manage-section" class="panel panel-primary">
+            <!-- PANEL HEADER - STARTS -->
+            <div class="panel-heading text-left">
+                <h4><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp;&nbsp;Manage data</h4>
+            </div>
+            <!-- PANEL HEADER - ENDS -->
+
+            <!-- PANEL CONTENT - STARTS -->
+            <form class="form-horizontal panel-body" name="manageKeyValueFrom" novalidate> 
+                <!-- REQUEST TYPE SELECTION - STARTS -->
+                <div class="form-group ">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="requestType" name="requestType" id="requestType" ng-value="1"> Add data
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="requestType" name="requestType" id="requestType" ng-value="2"> Retrieve data
+                        </label>
+                    </div>
+                </div>
+                <!-- REQUEST TYPE SELECTION - ENDS -->
+
+                <!-- KEY FIELD - STARTS -->
+                <div class="form-group">
+                    <label for="inputKey" class="col-sm-3 control-label">Key<span class="mad">*</span></label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputKey" placeholder="Enter the Key" name="inputKey" ng-model="user.key" required>
+                        <span class="error" ng-show="manageKeyValueFrom.inputKey.$touched && manageKeyValueFrom.inputKey.$invalid">
+                          <span ng-show="manageKeyValueFrom.inputKey.$error.required">Key is required.</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- KEY FIELD - ENDS -->
+
+                <!-- VALUE FIELD - STARTS -->
+                <div class="form-group" ng-if="requestType == 1">
+                    <label for="inputValue" class="col-sm-3 control-label">Value<span class="mad">*</span></label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputValue" placeholder="Enter the Value" name="inputValue" ng-model="user.value" required>
+                        <span class="error" ng-show="manageKeyValueFrom.inputValue.$touched && manageKeyValueFrom.inputValue.$invalid">
+                          <span ng-show="manageKeyValueFrom.inputValue.$error.required">Value is required.</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- VALUE FIELD - ENDS -->
+
+                <!-- TIMESTAMP FIELD - STARTS -->
+                <div class="form-group" ng-if="requestType == 2">
+                    <label for="inputValue" class="col-sm-3 control-label">Timestamp</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputTime" placeholder="Enter the Timestamp" name="inputTime" ng-model="user.timestamp" >
+                    </div>
+                </div>
+                <!-- TIMESTAMP FIELD - ENDS -->
+
+                <!-- BUTTONS - STARTS -->
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9 text-right">
+                      <button  ng-if="requestType == 1" type="button" class="btn btn-secondary" ng-click="clearData(manageKeyValueFrom);"><i class="fa fa-recycle" aria-hidden="true"></i>&nbsp;&nbsp;Clear</button>
+                      <button  ng-if="requestType == 1" type="button" class="btn btn-primary"  ng-click="addItem(user, manageKeyValueFrom);" ng-disabled="manageKeyValueFrom.$invalid"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;&nbsp;Add</button>
+                    <button  ng-if="requestType == 2" type="button" class="btn btn-primary"  ng-click="getItem(user, manageKeyValueFrom);" ng-disabled="manageKeyValueFrom.$invalid"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;&nbsp;Find</button>
+                    </div>
+                </div>
+                <!-- BUTTONS - ENDS -->
+            </form>
+            <!-- PANEL CONTENT - ENDS -->
+        </section>
+        <!-- MANAGE DATA SECTION - ENDS -->
+    </div>
+    <!-- MAIN CONTAINER - ENDS -->
+
+    <!-- ALERT POPUP - STARTS -->
+    <div class="alert success-alert"></div>
+    <div class="alert error-alert"></div>
+    <!-- ALERT POPUP - ENDS -->
+
+    <!-- FOOTER - STARTS --> 
+    <Footer>© 2018 Vault Dragon Code - All Rights Reserved</Footer>
+    <!-- FOOTER - ENDS -->  
+</body>
+</html>
